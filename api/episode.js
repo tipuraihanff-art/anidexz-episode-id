@@ -17,52 +17,69 @@ export default async function handler(req) {
   if (!title) return res({ error: "Missing param: title" }, 400);
   if (isNaN(epNum) || epNum < 1) return res({ error: "Missing param: ep" }, 400);
 
-  const searchRes = await fetch(`${BASE}/search?keyword=${encodeURIComponent(title)}`, { headers: H });
-  const html = await searchRes.text();
-  const anime = parseSearch(html, title);
-  if (!anime) return res({ error: "Anime not found" }, 404);
+  try {
+    // Use the suggest/autocomplete AJAX endpoint — returns JSON, no JS rendering needed
+    const suggestRes = await fetch(
+      `${BASE}/ajax/search/suggest?keyword=${encodeURIComponent(title)}`,
+      { headers: H }
+    );
+    const suggestData = await suggestRes.json();
 
-  const numId = anime.id.match(/(\d+)$/)?.[1];
-  const epRes = await fetch(`${BASE}/ajax/v2/episode/list/${numId}`, { headers: { ...H, Referer: `${BASE}/${anime.id}` } });
-  const data = await epRes.json();
-  const episodes = parseEpisodes(data.html || "");
-  const ep = episodes.find(e => e.number === epNum);
-  if (!ep) return res({ error: `Episode ${epNum} not found. Total: ${episodes.length}` }, 404);
+    let animeId = null;
+    let animeName = null;
 
-  return res({
-    episodeId: ep.episodeId,
-    episodeNumber: epNum,
-    url: `${BASE}/watch/${anime.id}?ep=${ep.episodeId}`,
-  });
-}
-
-function parseSearch(html, query) {
-  const seen = new Set(), results = [];
-  let m;
-  const re = /<a[^>]+href="\/([a-z0-9][a-z0-9-]+-\d{4,6})"[^>]*class="[^"]*dynamic-name[^"]*"[^>]*>([^<]+)<\/a>/g;
-  while ((m = re.exec(html)) !== null) {
-    if (!seen.has(m[1])) { seen.add(m[1]); results.push({ id: m[1].trim(), name: m[2].trim() }); }
-  }
-  if (!results.length) {
-    const fb = /href="\/([a-z][a-z0-9-]+-\d{4,6})"/g;
-    while ((m = fb.exec(html)) !== null) {
-      if (!seen.has(m[1])) { seen.add(m[1]); results.push({ id: m[1], name: "" }); }
+    if (suggestData.status && suggestData.html) {
+      // Parse the suggestion HTML for the first anime link
+      const match = suggestData.html.match(/href="\/([a-z0-9][a-z0-9-]+-\d{4,6})"/);
+      if (match) {
+        animeId = match[1];
+        const nameMatch = suggestData.html.match(/class="[^"]*film-name[^"]*"[^>]*>([^<]+)</);
+        animeName = nameMatch ? nameMatch[1].trim() : animeId;
+      }
     }
+
+    if (!animeId) return res({ error: `Anime not found: "${title}"` }, 404);
+
+    // Fetch episode list
+    const numId = animeId.match(/(\d+)$/)?.[1];
+    const epRes = await fetch(`${BASE}/ajax/v2/episode/list/${numId}`, {
+      headers: { ...H, Referer: `${BASE}/${animeId}` },
+    });
+    const epData = await epRes.json();
+    if (!epData.status || !epData.html) return res({ error: "Failed to fetch episodes" }, 502);
+
+    const episodes = parseEpisodes(epData.html);
+    if (!episodes.length) return res({ error: "No episodes found" }, 404);
+
+    const ep = episodes.find(e => e.number === epNum);
+    if (!ep) return res({ error: `Episode ${epNum} not found. Total episodes: ${episodes.length}` }, 404);
+
+    return res({
+      episodeId: ep.episodeId,
+      episodeNumber: epNum,
+      totalEpisodes: episodes.length,
+      url: `${BASE}/watch/${animeId}?ep=${ep.episodeId}`,
+      animeName,
+      animeId,
+    });
+  } catch (e) {
+    return res({ error: "Internal error: " + e.message }, 500);
   }
-  if (!results.length) return null;
-  const q = query.toLowerCase();
-  return results.find(r => r.name.toLowerCase().includes(q) || r.id.includes(q.replace(/\s+/g, "-"))) || results[0];
 }
 
 function parseEpisodes(html) {
   const eps = [], seen = new Set();
-  const re = /<a\b([^>]*)>/g; let m;
+  const re = /<a\b([^>]*)>/g;
+  let m;
   while ((m = re.exec(html)) !== null) {
     const num = m[1].match(/data-number="(\d+)"/);
     const id  = m[1].match(/data-id="(\d+)"/);
     if (!num || !id) continue;
     const number = +num[1], episodeId = +id[1];
-    if (!seen.has(episodeId)) { seen.add(episodeId); eps.push({ number, episodeId }); }
+    if (!seen.has(episodeId)) {
+      seen.add(episodeId);
+      eps.push({ number, episodeId });
+    }
   }
   return eps.sort((a, b) => a.number - b.number);
 }
@@ -70,6 +87,10 @@ function parseEpisodes(html) {
 function res(data, status = 200) {
   return new Response(JSON.stringify(data, null, 2), {
     status,
-    headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": status === 200 ? "s-maxage=3600" : "no-store",
+    },
   });
 }
