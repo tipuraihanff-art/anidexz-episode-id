@@ -1,9 +1,10 @@
 {
   "version": 2,
   "functions": {
-    "api/*.js": {
-      "maxDuration": 15
-    }
+    "api/episode.js": { "maxDuration": 15 },
+    "api/search.js":  { "maxDuration": 15 },
+    "api/episodes.js":{ "maxDuration": 15 },
+    "api/health.js":  { "maxDuration": 5  }
   },
   "headers": [
     {
