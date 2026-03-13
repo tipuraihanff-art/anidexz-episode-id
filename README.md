@@ -4,8 +4,6 @@
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=22&pause=1000&color=FF6B9D&center=true&vCenter=true&multiline=true&width=600&height=80&lines=Search+Any+Anime+🔍;Get+Episode+ID+Instantly+⚡;100%25+Free+%26+Open+Source+🆓" alt="Typing SVG" />
-
 <br/>
 
 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdmNnRibnVxbnVodXp6NHY5NzBtNXozemF5MDhuaWx5eTFuMGcyNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/hv5AEBpH3ZyNoRnABG/giphy.gif" width="160"/>
