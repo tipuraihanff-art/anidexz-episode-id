@@ -1,10 +1,16 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=AniDexz%20Episode%20API&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Anime%20Episode%20IDs%20%E2%80%94%20Instant%2C%20Free%2C%20Open%20Source&descAlignY=55&descSize=18" width="100%"/>
-
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdmNnRibnVxbnVodXp6NHY5NzBtNXozemF5MDhuaWx5eTFuMGcyNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/hv5AEBpH3ZyNoRnABG/giphy.gif" width="150"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=AniDexz%20Episode%20API&fontSize=55&fontColor=fff&animation=twinkling&fontAlignY=38&desc=⚡%20Blazing%20Fast%20Anime%20Episode%20ID%20Lookup&descAlignY=58&descSize=20" width="100%"/>
 
 <br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=22&pause=1000&color=FF6B9D&center=true&vCenter=true&multiline=true&width=600&height=80&lines=Search+Any+Anime+🔍;Get+Episode+ID+Instantly+⚡;100%25+Free+%26+Open+Source+🆓" alt="Typing SVG" />
+
+<br/>
+
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdmNnRibnVxbnVodXp6NHY5NzBtNXozemF5MDhuaWx5eTFuMGcyNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/hv5AEBpH3ZyNoRnABG/giphy.gif" width="160"/>
+
+<br/><br/>
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
@@ -16,11 +22,20 @@
 ![License](https://img.shields.io/badge/License-MIT-ff69b4?style=for-the-badge)
 ![Anime](https://img.shields.io/badge/Powered%20By-Anime-FF6B9D?style=for-the-badge&logo=crunchyroll&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Online-00D26A?style=for-the-badge&logo=statuspage&logoColor=white)
+![Zero Deps](https://img.shields.io/badge/Dependencies-Zero-blueviolet?style=for-the-badge&logo=npm&logoColor=white)
 ![PRs](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge&logo=github&logoColor=white)
 
 <br/>
 
-> 🔍 Search any anime → 📺 Get episode ID → 🎬 Stream instantly
+<img src="https://img.shields.io/github/stars/tipuraihanff-art/anidexz-episode-id?style=social"/> &nbsp;
+<img src="https://img.shields.io/github/watchers/tipuraihanff-art/anidexz-episode-id?style=social"/> &nbsp;
+<img src="https://img.shields.io/github/forks/tipuraihanff-art/anidexz-episode-id?style=social"/>
+
+<br/><br/>
+
+```
+🎌  Search Anime  →  🎯  Get Episode ID  →  🚀  Build Something Cool
+```
 
 </div>
 
@@ -28,41 +43,46 @@
 
 <div align="center">
 
-## ⚠️ IMPORTANT — DO NOT FORK
+## 🚨 IMPORTANT — DO NOT FORK 🚨
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2lqd2ZwMGw3NG13NmR0eTVnNHRiemx2czYwNXJ3aWxsMTkxb2MzMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LRVnPYqM8DLag/giphy.gif" width="100"/>
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2lqd2ZwMGw3NG13NmR0eTVnNHRiemx2czYwNXJ3aWxsMTkxb2MzMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LRVnPYqM8DLag/giphy.gif" width="120"/>
 
 </div>
 
-```
-❌ Don't fork   →   you'll miss all future updates
-✅ Do this      →   connect this repo directly to Render
-```
+| ❌ Forking | ✅ Direct Connect |
+|-----------|-----------------|
+| You miss all future updates | Auto-redeploys on every update |
+| You maintain your own copy | We maintain it for you |
+| Bugs stay with you | Fixes come to you instantly |
 
-> When you connect the **original repo** to Render, every update we push automatically redeploys your service. Free upgrades, forever. 🚀
-
----
-
-## 🌸 What is this?
-
-<img align="right" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzk5aGN5ejZlMWtlYzQ0NXQ5NXlxMzhzbWs2dXoxbjZrNmE3dXBsMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/l3q2zbskZp2j8wniE/giphy.gif" width="120"/>
-
-A blazing fast **Node.js REST API** that:
-
-- 🔎 Searches **aniwatchtv.to** for any anime title
-- 🧠 Smart-picks **Season 1** automatically if no season specified
-- 🎯 Returns the exact **episode ID** and **watch URL**
-- ⚡ Zero dependencies — pure Node.js built-ins only
-- 🆓 100% free to host on Render
-
-<br clear="right"/>
+> 💡 **How to do it right:** On Render, when connecting a repo — search for `tipuraihanff-art/anidexz-episode-id` and connect it directly. Do **not** fork first.
 
 ---
 
-## ⚡ Quick Demo
+<div align="center">
+
+## 🌸 What is AniDexz?
+
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzk5aGN5ejZlMWtlYzQ0NXQ5NXlxMzhzbWs2dXoxbjZrNmE3dXBsMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/l3q2zbskZp2j8wniE/giphy.gif" width="130"/>
+
+</div>
+
+A **dead-simple REST API** built in pure Node.js with **zero dependencies** that lets you look up anime episode IDs by title and episode number.
+
+- 🔎 **Fuzzy title matching** — typos and partial names work
+- 🧠 **Smart season detection** — auto-picks Season 1 when unspecified
+- ⚡ **Two-stage search** — AJAX suggest + page scrape fallback
+- 🆓 **Completely free** to host and use
+- 📦 **Zero npm packages** — just Node.js built-ins
+
+---
+
+## ⚡ Live Demo
+
+> Hit this right now 👇
 
 ```bash
-curl "https://your-app.onrender.com/api/episode?title=Solo+Leveling&ep=1"
+curl "https://anidexz-episode-id.onrender.com/api/episode?title=Solo+Leveling&ep=1"
 ```
 
 ```json
@@ -74,22 +94,20 @@ curl "https://your-app.onrender.com/api/episode?title=Solo+Leveling&ep=1"
 }
 ```
 
-> That's it. One request. Done. 💅
-
 ---
 
-## 🚀 Deploy in 60 seconds
+## 🚀 Deploy Your Own
 
 <details>
-<summary><b>🟢 Render (Recommended — Free)</b></summary>
-
+<summary><b>🟢 Render — Free, One Click</b></summary>
 <br/>
 
-1. Click the button below 👇
-2. Connect your GitHub account
-3. Set **build command** → `npm install`
-4. Set **start command** → `node index.js`
-5. Hit **Deploy** and grab your URL
+1. Click deploy 👇
+2. Connect GitHub → search `tipuraihanff-art/anidexz-episode-id` **(don't fork!)**
+3. Build command: `npm install`
+4. Start command: `node index.js`
+5. Instance: **Free**
+6. Deploy 🎉
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
@@ -97,17 +115,30 @@ curl "https://your-app.onrender.com/api/episode?title=Solo+Leveling&ep=1"
 
 <details>
 <summary><b>💻 Run Locally</b></summary>
-
 <br/>
 
 ```bash
+# Clone the original repo (not a fork)
 git clone https://github.com/tipuraihanff-art/anidexz-episode-id
 cd anidexz-episode-id
+
+# No install needed — zero dependencies!
 node index.js
-# → Running on port 3000
+
+# Running on port 3000 ✅
 ```
 
-Then hit `http://localhost:3000/api/episode?title=Naruto&ep=1`
+</details>
+
+<details>
+<summary><b>🐳 Environment Variables</b></summary>
+<br/>
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `PORT` | `3000` | Port the server listens on |
+
+Render sets `PORT` automatically — you don't need to touch it.
 
 </details>
 
@@ -117,39 +148,45 @@ Then hit `http://localhost:3000/api/episode?title=Naruto&ep=1`
 
 ### `GET /api/episode`
 
-| Param | Type | Required | Description |
-|-------|------|----------|-------------|
-| `title` | string | ✅ | Anime title — fuzzy match supported |
-| `ep` | number | ✅ | Episode number |
-
-### 🎯 Example Requests
-
-```bash
-# Basic
-/api/episode?title=Naruto&ep=1
-
-# With spaces
-/api/episode?title=Demon+Slayer&ep=5
-
-# Specific season
-/api/episode?title=Attack+on+Titan+Season+4&ep=1
-
-# Auto picks Season 1
-/api/episode?title=Solo+Leveling&ep=10
-
-# Long titles work too
-/api/episode?title=Jujutsu+Kaisen+Culling+Game&ep=10
+```
+https://your-app.onrender.com/api/episode?title={anime}&ep={number}
 ```
 
-### 📬 Responses
+**Parameters**
+
+| Param | Type | Required | Notes |
+|-------|------|----------|-------|
+| `title` | `string` | ✅ | Full or partial anime title |
+| `ep` | `number` | ✅ | Episode number (1–9999) |
+
+**Try it**
+
+```bash
+# Works with partial titles
+/api/episode?title=Solo+Leveling&ep=5
+
+# Auto picks Season 1
+/api/episode?title=Attack+on+Titan&ep=1
+
+# Specify a season explicitly
+/api/episode?title=Attack+on+Titan+Season+4&ep=1
+
+# Culling game arc
+/api/episode?title=Jujutsu+Kaisen+Culling+Game&ep=10
+
+# Movie-length episodes
+/api/episode?title=Demon+Slayer&ep=1
+```
+
+**Responses**
 
 <details>
-<summary><b>✅ 200 — Success</b></summary>
+<summary>✅ <b>200 Success</b></summary>
 
 ```json
 {
   "episodeId": 134524,
-  "episodeNumber": 1,
+  "episodeNumber": 5,
   "totalEpisodes": 13,
   "url": "https://aniwatchtv.to/watch/solo-leveling-19413?ep=134524"
 }
@@ -157,7 +194,7 @@ Then hit `http://localhost:3000/api/episode?title=Naruto&ep=1`
 </details>
 
 <details>
-<summary><b>❌ 404 — Not Found</b></summary>
+<summary>❌ <b>404 Not Found</b></summary>
 
 ```json
 { "error": "Anime not found: \"xyz\"" }
@@ -165,122 +202,165 @@ Then hit `http://localhost:3000/api/episode?title=Naruto&ep=1`
 </details>
 
 <details>
-<summary><b>⚠️ 400 — Bad Request</b></summary>
+<summary>⚠️ <b>400 Bad Request</b></summary>
 
 ```json
 { "error": "Missing param: title" }
 ```
 </details>
 
----
+<details>
+<summary>💥 <b>500 Server Error</b></summary>
 
-## 🧩 Use the Episode ID
-
-### 🎬 MegaPlay Embed
-
-Plug the `episodeId` straight into [megaplay.buzz](https://megaplay.buzz):
-
+```json
+{ "error": "Internal error: ..." }
 ```
-https://megaplay.buzz/stream/s-2/{episodeId}/sub
-https://megaplay.buzz/stream/s-2/{episodeId}/dub
-```
-
-```html
-<!-- Drop this in your site -->
-<iframe
-  src="https://megaplay.buzz/stream/s-2/134524/sub"
-  width="100%"
-  height="500"
-  frameborder="0"
-  allowfullscreen>
-</iframe>
-```
-
-### 🔗 Direct Watch Link
-
-The `url` field in the response opens the episode directly on aniwatchtv.to — no extra steps needed.
+</details>
 
 ---
 
-## 🧠 How it Works
+## 🔌 What can I do with the Episode ID?
+
+The `episodeId` is a universal key — you can pass it to **any anime streaming API or embed player** that accepts HiAnime / AniWatch episode IDs. There are several public and community-built APIs out there that support this format.
+
+> 🔍 Search for **"hianime episode embed API"** or **"aniwatch stream API"** to find compatible players and services.
+
+---
+
+## 🧠 How It Works
 
 ```
-┌─────────────────────────────────────────────────┐
-│                  Your Request                    │
-│         ?title=Solo Leveling&ep=1               │
-└───────────────────┬─────────────────────────────┘
-                    │
-                    ▼
-┌─────────────────────────────────────────────────┐
-│           Step 1: Search AniWatch               │
-│   /ajax/search/suggest?keyword=Solo+Leveling    │
-│         (falls back to search page)             │
-└───────────────────┬─────────────────────────────┘
-                    │
-                    ▼
-┌─────────────────────────────────────────────────┐
-│           Step 2: Smart Ranking                 │
-│   • Exact match scores highest                  │
-│   • Sequels penalized -80pts if no season asked │
-│   • Picks best match automatically              │
-└───────────────────┬─────────────────────────────┘
-                    │
-                    ▼
-┌─────────────────────────────────────────────────┐
-│          Step 3: Fetch Episode List             │
-│      /ajax/v2/episode/list/{animeId}            │
-└───────────────────┬─────────────────────────────┘
-                    │
-                    ▼
-┌─────────────────────────────────────────────────┐
-│              Step 4: Return                     │
-│    episodeId + episodeNumber + url ✅           │
-└─────────────────────────────────────────────────┘
+ You                     AniDexz                   AniWatch
+  │                          │                          │
+  │  GET /api/episode        │                          │
+  │  ?title=Solo Leveling    │                          │
+  │  &ep=1                   │                          │
+  │─────────────────────────►│                          │
+  │                          │  /ajax/search/suggest    │
+  │                          │  ?keyword=Solo+Leveling  │
+  │                          │─────────────────────────►│
+  │                          │◄─────────────────────────│
+  │                          │  Smart rank results      │
+  │                          │  Penalize sequels -80pts │
+  │                          │  Pick best match ✅      │
+  │                          │                          │
+  │                          │  /ajax/v2/episode/list   │
+  │                          │  /19413                  │
+  │                          │─────────────────────────►│
+  │                          │◄─────────────────────────│
+  │                          │  Parse episode list      │
+  │                          │  Find ep number 1        │
+  │◄─────────────────────────│                          │
+  │  { episodeId: 134524 }   │                          │
 ```
 
 ---
 
-## 🗂️ Project Structure
+## 🏗️ Project Structure
 
 ```
 📦 anidexz-episode-id
- ┣ 📄 index.js      ← entire API in one file
- ┣ 📄 package.json  ← node config
- ┗ 📄 README.md     ← you are here
+ ┣ 📄 index.js       ← the entire API — one file, no bloat
+ ┣ 📄 package.json   ← minimal config, zero dependencies
+ ┗ 📄 README.md      ← you are here 👋
 ```
+
+---
+
+## 📊 Tech Stack
+
+<div align="center">
+
+| Layer | Tech |
+|-------|------|
+| Runtime | Node.js 18+ |
+| Language | JavaScript (ESM) |
+| HTTP | `node:http` built-in |
+| Fetching | `fetch` built-in (Node 18+) |
+| Parsing | Regex — no HTML parser needed |
+| Hosting | Render (free tier) |
+| Dependencies | **Zero** |
+
+</div>
 
 ---
 
 ## 🤝 Contributing
 
+All contributions are welcome!
+
 ```bash
-# 1. Clone
+# 1. Clone directly (no fork!)
 git clone https://github.com/tipuraihanff-art/anidexz-episode-id
 
-# 2. Make changes to index.js
+# 2. Make your changes to index.js
 
-# 3. Test locally
+# 3. Test
 node index.js
+curl "localhost:3000/api/episode?title=Naruto&ep=1"
 
-# 4. Open a PR ❤️
+# 4. Open a pull request ❤️
 ```
 
-![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge&logo=github)
+**Ideas welcome:**
+- 🌐 More fallback search strategies
+- 🎭 Better season/part detection
+- 📺 Additional anime sources
+- 🐛 Bug fixes
+
+---
+
+## ❓ FAQ
+
+<details>
+<summary><b>Why does it sometimes return the wrong season?</b></summary>
+
+Try being more specific: `Solo+Leveling+Season+2` instead of just `Solo+Leveling`. The API auto-picks Season 1 when no season is mentioned, but some anime titles make this tricky.
+
+</details>
+
+<details>
+<summary><b>Why does the free Render instance sometimes respond slowly?</b></summary>
+
+Free Render instances spin down after inactivity. The first request after a sleep period takes ~30 seconds to wake up. Subsequent requests are fast.
+
+</details>
+
+<details>
+<summary><b>Can I use this in my project?</b></summary>
+
+Yes! MIT licensed. Use it anywhere. Credit appreciated but not required. ⭐
+
+</details>
+
+<details>
+<summary><b>Is this against AniWatch's ToS?</b></summary>
+
+This API only reads publicly accessible search and episode list pages — the same data your browser loads. No login, no bypassing paywalls, no downloading.
+
+</details>
 
 ---
 
 <div align="center">
 
-## 🌟 Support
+## 🌟 Show Some Love
 
-If this helped you, drop a ⭐ on the repo — it means a lot!
+If this project saved you time, drop a ⭐ — it keeps the project alive!
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXIweHB0MGN6NHVocWZ3bWR3eWwxOGRsNzN6NHV6MW9iNzd6ZmZpNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26BRuo6sLetdllPAQ/giphy.gif" width="200"/>
+[![Star](https://img.shields.io/github/stars/tipuraihanff-art/anidexz-episode-id?style=for-the-badge&logo=github&color=yellow)](https://github.com/tipuraihanff-art/anidexz-episode-id)
+[![Watch](https://img.shields.io/github/watchers/tipuraihanff-art/anidexz-episode-id?style=for-the-badge&logo=github&color=blue)](https://github.com/tipuraihanff-art/anidexz-episode-id)
 
 <br/>
 
-made with 🍜 and too much anime
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXIweHB0MGN6NHVocWZ3bWR3eWwxOGRsNzN6NHV6MW9iNzd6ZmZpNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26BRuo6sLetdllPAQ/giphy.gif" width="180"/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" width="100%"/>
+<br/>
+
+**made with 🍜 and way too much anime**
+
+<br/>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer&animation=twinkling" width="100%"/>
 
 </div>
