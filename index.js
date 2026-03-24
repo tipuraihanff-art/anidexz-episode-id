@@ -30,7 +30,18 @@ http.createServer(async (req, res) => {
   console.log(`[request] title="${title}" ep=${epNum}`);
 
   try {
-    const animeId = await findAnimeId(title);
+    // Try exact match first with original title
+    let animeId = await findAnimeId(title);
+    
+    // If no exact match, try Google Translate for CJK titles
+    if (!animeId) {
+      const translatedTitle = await translateTitle(title);
+      if (translatedTitle && translatedTitle !== title.toLowerCase()) {
+        console.log(`[translate] "${title}" -> "${translatedTitle}"`);
+        animeId = await findAnimeId(translatedTitle);
+      }
+    }
+
     if (!animeId) return send(res, 404, { error: `Anime not found: "${title}"` });
 
     const numId = animeId.match(/(\d+)$/)?.[1];
@@ -52,6 +63,70 @@ http.createServer(async (req, res) => {
   }
 
 }).listen(PORT, () => console.log(`Running on port ${PORT}`));
+
+async function translateTitle(title) {
+  // Detect CJK characters (Chinese/Japanese/Korean)
+  const cjkRegex = /[\u4e00-\u9fff\u3040-\u309f\u30a0-\u30ff\uac00-\ud7af]/;
+  if (!cjkRegex.test(title)) return null;
+
+  // Exact popular anime title mappings (prioritize these for accuracy)
+  const exactTranslations = {
+    // Chinese
+    '一人之下': 'Under One Person',
+    '斗罗大陆': 'Douluo Continent', 
+    '斗破苍穹': 'Battle Through the Heavens',
+    '完美世界': 'Perfect World',
+    '凡人修仙传': 'A Record of a Mortal\'s Journey to Immortality',
+    '狐妖小红娘': 'Fox Spirit Matchmaker',
+    
+    // Japanese (Hiragana/Katakana/Kanji)
+    '鬼滅の刃': 'Demon Slayer',
+    '進撃の巨人': 'Attack on Titan', 
+    '僕のヒーローアカデミア': 'My Hero Academia',
+    '呪術廻戦': 'Jujutsu Kaisen',
+    '東京喰種': 'Tokyo Ghoul',
+    'Re:ゼロから始める異世界生活': 'Re:Zero',
+    '盾の勇者の成り上がり': 'The Rising of the Shield Hero',
+    
+    // Korean
+    '나혼잇따': 'Solo Leveling',
+    '신의 탑': 'Tower of God',
+    '노블레스': 'Noblesse',
+    '갓 오브 하이스쿨': 'God of High School',
+  };
+
+  const lowerTitle = title.toLowerCase();
+  for (const [orig, eng] of Object.entries(exactTranslations)) {
+    if (title.includes(orig) || lowerTitle.includes(orig.toLowerCase())) {
+      return eng;
+    }
+  }
+
+  // Google Translate API (free, unofficial endpoint that works reliably)
+  try {
+    const response = await fetch(
+      `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=${encodeURIComponent(title)}`,
+      { 
+        headers: { 
+          'User-Agent': H['User-Agent'],
+          'Accept': 'application/json'
+        },
+        timeout: 5000 
+      }
+    );
+    
+    if (response.ok) {
+      const data = await response.json();
+      const translated = data[0][0][0];
+      console.log(`[google-translate] "${title}" -> "${translated}"`);
+      return translated;
+    }
+  } catch (e) {
+    console.warn('[google-translate] failed:', e.message);
+  }
+
+  return null;
+}
 
 async function findAnimeId(title) {
   try {
@@ -112,6 +187,27 @@ function extractId(html, query) {
   const qSlug = q.replace(/\s+/g, "-");
   const queryHasSeason = /\b(season\s*\d|s\d|part\s*\d|\d+(nd|rd|th)\s*season)\b/i.test(query);
 
+  // ✅ EXACT MATCH PRIORITY (new logic)
+  for (const c of candidates) {
+    const name = c.name.toLowerCase();
+    const slug = c.id.toLowerCase();
+    
+    // Exact name match
+    if (name === q || slug === qSlug) {
+      console.log(`[EXACT] ${c.id} "${c.name}"`);
+      return c.id;
+    }
+    
+    // Exact ignoring case/spacing/punctuation
+    const cleanName = name.replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
+    const cleanQ = q.replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
+    if (cleanName === cleanQ) {
+      console.log(`[EXACT-CLEAN] ${c.id} "${c.name}"`);
+      return c.id;
+    }
+  }
+
+  // Fallback to your original similarity scoring
   let best = null, bestScore = -1;
   for (const c of candidates) {
     const name = c.name.toLowerCase(), slug = c.id.toLowerCase();
